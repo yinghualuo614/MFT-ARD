@@ -172,7 +172,6 @@ class CalWeight(nn.Module):
     def __init__(self, feat_s, feat_t_list):
         super(CalWeight, self).__init__()
 
-        # student和teacher都用最后一层
         s_channel = feat_s.shape[1]
         for i in range(len(feat_t_list)):
             t_channel = feat_t_list[i].shape[1]
@@ -411,7 +410,7 @@ def main():
 
     model_t_list = []
 
-    # 搭建对抗老师模型
+    
     adv_teacher1_model_name = "bagtricks_R50_fastreid"
     # Make sure load pretrained model
     os.environ["pretrain"] = "1"
